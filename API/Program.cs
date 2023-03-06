@@ -12,9 +12,14 @@ builder.Services.AddDbContext<DataContext>(opt =>
 }
 );//Lifetime => Scoped
 
+builder.Services.AddCors();
+
 var app = builder.Build();// services container
 
 // Configure the HTTP request pipeline.
+app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
+
+
 app.MapControllers();
 
 app.Run();
