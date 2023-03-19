@@ -1,4 +1,6 @@
 using API.Data;
+using API.Interfaces;
+using API.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);//Create a web application instance
@@ -13,6 +15,7 @@ builder.Services.AddDbContext<DataContext>(opt =>
 );//Lifetime => Scoped
 
 builder.Services.AddCors();
+builder.Services.AddScoped<ITokenService,TokenService>();
 
 var app = builder.Build();// services container
 

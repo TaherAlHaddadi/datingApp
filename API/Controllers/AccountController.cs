@@ -56,7 +56,7 @@ namespace API.Controllers
             for(int i = 0 ; i< computedHash.Length; i++)
             {
                 if(computedHash[i] != user.PasswordHash[i]) return Unauthorized("Wrong password");
-            }_
+            }
 
             return user;
         }
